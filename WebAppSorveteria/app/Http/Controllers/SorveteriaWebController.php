@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class SorveteriaWebController extends Controller
 {
-    //Crud consumindo a API
+    
     private $urlApi = 'https://apisorvete.webapptech.site/api/sorvete';
 
     public function index()

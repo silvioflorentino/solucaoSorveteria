@@ -3,7 +3,7 @@
 @section('content')
 <h1>Bem-vindo à Sorveteria do Senac</h1>
 <p>Estamos felizes em tê-lo aqui! Explore nossos deliciosos sorvetes.</p>  
-    <p>Você está logado com Firebase.</p>
+    <p>Você está logado com Firebase. {{Session::get('firebase_user')['email']}} </p>
     <a href="{{ route('logout') }}">Sair</a>
 <a href="{{ route('sorveteria.create') }}" class="btn btn-success mb-3">Novo Sabor</a>
 @if(count($sorvetes))

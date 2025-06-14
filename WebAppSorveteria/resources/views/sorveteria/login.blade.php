@@ -17,6 +17,6 @@
         <button type="submit">Entrar</button>
     </form>
     <p>Não tem uma conta? <a href="{{ route('register.form') }}">Cadastre-se aqui</a></p>
-
+    <p>Recuperar senha <a href="{{ route('password.request') }}">Cadastre-se aqui</a></p>
 </body>
 </html>

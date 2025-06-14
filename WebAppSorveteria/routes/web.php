@@ -9,6 +9,9 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
+Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('password.request');
+Route::post('/forgot-password', [AuthController::class, 'sendResetEmail'])->name('password.email');
+
 Route::middleware(['firebase'])->group(function () {
     //Route::get('/home', [AuthController::class, 'home']);
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
