@@ -33,4 +33,4 @@ function legacySendAccessibilityEvent(
   }
 }
 
-export default legacySendAccessibilityEvent;
+module.exports = legacySendAccessibilityEvent;

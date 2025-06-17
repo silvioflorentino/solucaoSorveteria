@@ -291,19 +291,9 @@ open class FileSystemModule : Module() {
           val from = fromUri.toFile()
           val to = toUri.toFile()
           if (from.isDirectory) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-              FileUtils.copyDirectory(from, to)
-            } else {
-              // to be removed once Android SDK 25 support is dropped
-              from.copyRecursively(to, overwrite = true)
-            }
+            FileUtils.copyDirectory(from, to)
           } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-              FileUtils.copyFile(from, to)
-            } else {
-              // to be removed once Android SDK 25 support is dropped
-              from.copyTo(to, overwrite = true)
-            }
+            FileUtils.copyFile(from, to)
           }
         }
 

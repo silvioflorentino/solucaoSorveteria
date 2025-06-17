@@ -84,10 +84,6 @@ inline const Runtime::PointerValue* Runtime::getPointerValue(
   return value.data_.pointer.ptr_;
 }
 
-Value Object::getPrototype(Runtime& runtime) const {
-  return runtime.getPrototypeOf(*this);
-}
-
 inline Value Object::getProperty(Runtime& runtime, const char* name) const {
   return getProperty(runtime, String::createFromAscii(runtime, name));
 }

@@ -38,8 +38,6 @@
 
 - (void)viewDidUpdateProps;
 
-- (void)setShadowNodeSize:(float) width height:(float) height;
-
 - (BOOL)supportsPropWithName:(nonnull NSString *)name;
 
 // MARK: - Derived from RCTComponentViewProtocol

@@ -145,39 +145,35 @@ object AnyTypeProvider {
   }
 }
 
-inline fun <reified T> (() -> KType).toAnyType(converterProvider: TypeConverterProvider? = null) =
-  AnyType(
-    LazyKType(
-      classifier = T::class,
-      isMarkedNullable = null is T,
-      kTypeProvider = this
-    ),
-    converterProvider
+inline fun <reified T> (() -> KType).toAnyType() = AnyType(
+  LazyKType(
+    classifier = T::class,
+    isMarkedNullable = null is T,
+    kTypeProvider = this
   )
+)
 
-inline fun <reified T> toAnyType(converterProvider: TypeConverterProvider? = null): AnyType {
-  return AnyTypeProvider.cachedAnyType<T>() ?: { typeOf<T>() }.toAnyType<T>(converterProvider)
+inline fun <reified T> toAnyType(): AnyType {
+  return AnyTypeProvider.cachedAnyType<T>() ?: { typeOf<T>() }.toAnyType<T>()
 }
 
 @Suppress("UNUSED_PARAMETER")
 inline fun <reified P0> toArgsArray(
-  p0: Class<P0> = P0::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p0: Class<P0> = P0::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider)
+    toAnyType<P0>()
   )
 }
 
 @Suppress("UNUSED_PARAMETER")
 inline fun <reified P0, reified P1> toArgsArray(
   p0: Class<P0> = P0::class.java,
-  p1: Class<P1> = P1::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p1: Class<P1> = P1::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider),
-    toAnyType<P1>(converterProvider)
+    toAnyType<P0>(),
+    toAnyType<P1>()
   )
 }
 
@@ -185,13 +181,12 @@ inline fun <reified P0, reified P1> toArgsArray(
 inline fun <reified P0, reified P1, reified P2> toArgsArray(
   p0: Class<P0> = P0::class.java,
   p1: Class<P1> = P1::class.java,
-  p2: Class<P2> = P2::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p2: Class<P2> = P2::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider),
-    toAnyType<P1>(converterProvider),
-    toAnyType<P2>(converterProvider)
+    toAnyType<P0>(),
+    toAnyType<P1>(),
+    toAnyType<P2>()
   )
 }
 
@@ -200,14 +195,13 @@ inline fun <reified P0, reified P1, reified P2, reified P3> toArgsArray(
   p0: Class<P0> = P0::class.java,
   p1: Class<P1> = P1::class.java,
   p2: Class<P2> = P2::class.java,
-  p3: Class<P3> = P3::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p3: Class<P3> = P3::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider),
-    toAnyType<P1>(converterProvider),
-    toAnyType<P2>(converterProvider),
-    toAnyType<P3>(converterProvider)
+    toAnyType<P0>(),
+    toAnyType<P1>(),
+    toAnyType<P2>(),
+    toAnyType<P3>()
   )
 }
 
@@ -217,15 +211,14 @@ inline fun <reified P0, reified P1, reified P2, reified P3, reified P4> toArgsAr
   p1: Class<P1> = P1::class.java,
   p2: Class<P2> = P2::class.java,
   p3: Class<P3> = P3::class.java,
-  p4: Class<P4> = P4::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p4: Class<P4> = P4::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider),
-    toAnyType<P1>(converterProvider),
-    toAnyType<P2>(converterProvider),
-    toAnyType<P3>(converterProvider),
-    toAnyType<P4>(converterProvider)
+    toAnyType<P0>(),
+    toAnyType<P1>(),
+    toAnyType<P2>(),
+    toAnyType<P3>(),
+    toAnyType<P4>()
   )
 }
 
@@ -236,16 +229,15 @@ inline fun <reified P0, reified P1, reified P2, reified P3, reified P4, reified 
   p2: Class<P2> = P2::class.java,
   p3: Class<P3> = P3::class.java,
   p4: Class<P4> = P4::class.java,
-  p5: Class<P5> = P5::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p5: Class<P5> = P5::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider),
-    toAnyType<P1>(converterProvider),
-    toAnyType<P2>(converterProvider),
-    toAnyType<P3>(converterProvider),
-    toAnyType<P4>(converterProvider),
-    toAnyType<P5>(converterProvider)
+    toAnyType<P0>(),
+    toAnyType<P1>(),
+    toAnyType<P2>(),
+    toAnyType<P3>(),
+    toAnyType<P4>(),
+    toAnyType<P5>()
   )
 }
 
@@ -257,17 +249,16 @@ inline fun <reified P0, reified P1, reified P2, reified P3, reified P4, reified 
   p3: Class<P3> = P3::class.java,
   p4: Class<P4> = P4::class.java,
   p5: Class<P5> = P5::class.java,
-  p6: Class<P6> = P6::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p6: Class<P6> = P6::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider),
-    toAnyType<P1>(converterProvider),
-    toAnyType<P2>(converterProvider),
-    toAnyType<P3>(converterProvider),
-    toAnyType<P4>(converterProvider),
-    toAnyType<P5>(converterProvider),
-    toAnyType<P6>(converterProvider)
+    toAnyType<P0>(),
+    toAnyType<P1>(),
+    toAnyType<P2>(),
+    toAnyType<P3>(),
+    toAnyType<P4>(),
+    toAnyType<P5>(),
+    toAnyType<P6>()
   )
 }
 
@@ -280,32 +271,26 @@ inline fun <reified P0, reified P1, reified P2, reified P3, reified P4, reified 
   p4: Class<P4> = P4::class.java,
   p5: Class<P5> = P5::class.java,
   p6: Class<P6> = P6::class.java,
-  p7: Class<P7> = P7::class.java,
-  converterProvider: TypeConverterProvider? = null
+  p7: Class<P7> = P7::class.java
 ): Array<AnyType> {
   return arrayOf(
-    toAnyType<P0>(converterProvider),
-    toAnyType<P1>(converterProvider),
-    toAnyType<P2>(converterProvider),
-    toAnyType<P3>(converterProvider),
-    toAnyType<P4>(converterProvider),
-    toAnyType<P5>(converterProvider),
-    toAnyType<P6>(converterProvider),
-    toAnyType<P7>(converterProvider)
+    toAnyType<P0>(),
+    toAnyType<P1>(),
+    toAnyType<P2>(),
+    toAnyType<P3>(),
+    toAnyType<P4>(),
+    toAnyType<P5>(),
+    toAnyType<P6>(),
+    toAnyType<P7>()
   )
 }
 
 class AnyType(
-  val kType: KType,
-  val converterProvider: TypeConverterProvider? = null
+  val kType: KType
 ) {
 
   private val converter: TypeConverter<*> by lazy {
-    if (converterProvider != null) {
-      converterProvider.obtainTypeConverter(kType)
-    } else {
-      TypeConverterProviderImpl.obtainTypeConverter(kType)
-    }
+    TypeConverterProviderImpl.obtainTypeConverter(kType)
   }
 
   fun convert(value: Any?, appContext: AppContext? = null): Any? =

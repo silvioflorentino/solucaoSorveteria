@@ -42,4 +42,4 @@ const ToastAndroid = {
   },
 };
 
-export default ToastAndroid;
+module.exports = ToastAndroid;

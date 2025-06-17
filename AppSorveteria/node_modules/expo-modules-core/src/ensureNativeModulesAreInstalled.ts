@@ -1,6 +1,6 @@
 import { NativeModules, Platform } from 'react-native';
 
-import { registerWebGlobals } from './web';
+import { registerWebGlobals } from './web/index';
 
 /**
  * Ensures that the native modules are installed in the current runtime.

@@ -6,7 +6,6 @@ import expo.modules.kotlin.RuntimeContext
 import expo.modules.kotlin.providers.AppContextProvider
 import expo.modules.kotlin.tracing.trace
 import expo.modules.kotlin.types.Enumerable
-import expo.modules.kotlin.types.TypeConverterProvider
 import kotlinx.coroutines.CoroutineScope
 
 abstract class Module : AppContextProvider {
@@ -50,8 +49,6 @@ abstract class Module : AppContextProvider {
   fun <T> sendEvent(enum: T, body: Map<String, Any?>? = null) where T : Enumerable, T : Enum<T> {
     moduleEventEmitter?.emit(convertEnumToString(enum), body)
   }
-
-  open fun customConverterProvider(): TypeConverterProvider? = null
 
   abstract fun definition(): ModuleDefinitionData
 }
